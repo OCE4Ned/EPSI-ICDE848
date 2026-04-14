@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-               git branch: 'main', credentialsId: 'b231144f-1d23-45ba-9005-633d5350d9eb', url: 'https://github.com/OCE4Ned/EPSI-ICDE848.git'
+               git branch: 'main', changelog: false, poll: false, url: 'https://codeberg.org/argonaultes-epsi-paris/epsi-paris-i1-icde848.git'
             }
         }
         stage("Test") {
