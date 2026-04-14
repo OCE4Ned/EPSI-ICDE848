@@ -11,9 +11,11 @@ pipeline {
                git branch: 'main', credentialsId: 'b231144f-1d23-45ba-9005-633d5350d9eb', url: 'https://github.com/OCE4Ned/EPSI-ICDE848.git'
             }
         }
-        stage("Maven test") {
+        stage("Test") {
             steps {
                 sh 'mvn test'
+                archiveArtefacts artifacts: "target/*.jar", fingerprint: true,
+                followSymLinks: false
             }
         }
     }
